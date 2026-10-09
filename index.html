@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mihini Weerasekara</title>
+<meta name="description" content="Mihini Weerasekara, final-year Computer Science student at Uva Wellassa University. Full-stack projects in React, Spring Boot, Node.js, Django and PHP. Open to software engineering and QA internships.">
+<meta property="og:title" content="Mihini Weerasekara">
+<meta property="og:description" content="Full-stack web apps for everyday problems in Sri Lanka. Open to software engineering and QA internships.">
+<meta property="og:image" content="assets/amethia-home.webp">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+/* Layout: one column of wide project "cases" — real screenshots carry the page; the hero headline is the one loud moment. */
+:root {
+  --paper: #F6F5FB;
+  --surface: #FFFFFF;
+  --ink: #1C1730;
+  --muted: #5B5570;
+  --line: #E2DFEC;
+  --amethyst: #6338C9;
+  --amethyst-soft: #EEE8FB;
+  --marigold: #C9800F;
+  --marigold-soft: #FDF1DC;
+  --go: #1F8A5B;
+  --shot-shadow: 0 18px 50px -18px rgba(40, 24, 90, .35);
+
+  --display: "Young Serif", Georgia, "Times New Roman", serif;
+  --body: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.4rem;
+  --step-3: clamp(1.75rem, 3.4vw, 2.4rem);
+  --step-4: clamp(2.4rem, 6vw, 4.4rem);
+  --wrap: 1180px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14111F; --surface: #1C1830; --ink: #EEEAF7; --muted: #A79FBF; --line: #2F2946;
+    --amethyst: #A98BFA; --amethyst-soft: #2A2150; --marigold: #F2B860; --marigold-soft: #3A2C14; --go: #4CC98F;
+    --shot-shadow: 0 18px 50px -18px rgba(0, 0, 0, .7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #14111F; --surface: #1C1830; --ink: #EEEAF7; --muted: #A79FBF; --line: #2F2946;
+  --amethyst: #A98BFA; --amethyst-soft: #2A2150; --marigold: #F2B860; --marigold-soft: #3A2C14; --go: #4CC98F;
+  --shot-shadow: 0 18px 50px -18px rgba(0, 0, 0, .7);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: var(--step-0); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: var(--amethyst); text-underline-offset: 3px; }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+p { margin: 0; }
+.wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+:focus-visible { outline: 3px solid var(--amethyst); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: .5em;
+  font: 600 var(--step-0) var(--body); text-decoration: none; line-height: 1;
+  padding: .9em 1.35em; border-radius: 999px; border: 1.5px solid transparent; cursor: pointer;
+  transition: transform .15s, background-color .15s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--amethyst); color: #fff; }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--paper); }
+.btn svg { width: 1.05em; height: 1.05em; }
+
+/* nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; }
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.mark { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.mark-badge { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--ink); color: var(--paper); font-family: var(--display); font-size: .82rem; letter-spacing: 0; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 500; }
+.nav-links a:not(.btn):hover { color: var(--ink); }
+.nav .btn { padding: .65em 1.1em; font-size: .95rem; }
+
+/* hero */
+.hero { padding-block: 72px 96px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.hero-kicker { display: inline-flex; align-items: baseline; gap: 10px; color: var(--muted); font-weight: 500; margin-bottom: 26px; }
+.dot { width: 9px; height: 9px; transform: translateY(-1px); border-radius: 50%; background: var(--go); box-shadow: 0 0 0 4px color-mix(in srgb, var(--go) 20%, transparent); flex: none; }
+.hero h1 { font-family: var(--display); font-size: var(--step-4); line-height: 1.04; letter-spacing: -.015em; max-width: 14ch; }
+.hero-sub { font-size: var(--step-1); color: var(--muted); max-width: 52ch; margin-top: 26px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.hero-place { margin-top: 22px; color: var(--muted); font-size: .95rem; display: flex; align-items: center; gap: 8px; }
+.hero-place svg { width: 16px; height: 16px; flex: none; }
+
+.fan { position: relative; aspect-ratio: 1 / .82; max-width: 100%; }
+.fan figure { position: absolute; margin: 0; width: 78%; border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: var(--shot-shadow); border: 1px solid var(--line); }
+.fan figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
+.fan .f1 { left: 0; top: 4%; transform: rotate(-5deg); z-index: 1; }
+.fan .f2 { right: 0; top: 20%; transform: rotate(4deg); z-index: 2; }
+.fan .f3 { left: 12%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
+@media (prefers-reduced-motion: no-preference) {
+  .fan figure { animation: deal .9s cubic-bezier(.2, .8, .25, 1) both; }
+  .fan .f2 { animation-delay: .12s; }
+  .fan .f3 { animation-delay: .24s; }
+  @keyframes deal { from { transform: translate(0, 30px) rotate(0deg); opacity: .4; } }
+}
+
+/* sections */
+.section { padding-block: 88px; }
+.section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: 56px; }
+.section-head h2 { font-family: var(--display); font-size: var(--step-3); line-height: 1.1; }
+.section-head p { color: var(--muted); max-width: 48ch; justify-self: end; }
+
+/* projects */
+.projects { display: grid; gap: 120px; }
+.project { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.project:nth-child(even) .project-media { order: 2; }
+.project-media { position: relative; padding-bottom: 14%; }
+.shot { border-radius: 12px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shot-shadow); }
+.shot img { width: 100%; aspect-ratio: 16 / 9.4; object-fit: cover; object-position: top left; }
+.shot-bar { display: flex; align-items: center; gap: 6px; height: 30px; padding-inline: 12px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.shot-bar span { margin-left: 10px; font-size: .75rem; color: var(--muted); }
+.shot-2 { position: absolute; width: 46%; right: -3%; bottom: 0; }
+.project:nth-child(even) .shot-2 { right: auto; left: -3%; }
+.shot-2 img { aspect-ratio: 16 / 10; }
+
+.project-body { display: grid; gap: 18px; min-width: 0; }
+.project-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: var(--muted); font-size: .95rem; }
+.tag { display: inline-block; padding: .2em .7em; border-radius: 999px; font-size: .85rem; font-weight: 600; background: var(--marigold-soft); color: var(--marigold); }
+.project h3 { font-family: var(--display); font-size: var(--step-3); line-height: 1.1; }
+.project-lede { font-size: var(--step-1); color: var(--muted); }
+.points { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.points li { position: relative; padding-left: 22px; }
+.points li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--amethyst); transform: rotate(45deg); }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.stack li { font-size: .85rem; font-weight: 500; padding: .3em .75em; border-radius: 6px; background: var(--amethyst-soft); color: var(--ink); }
+.project-link { font-weight: 600; display: inline-flex; align-items: center; gap: 8px; width: fit-content; }
+.project-link svg { width: 18px; height: 18px; }
+
+/* SeatLanka seat map (drawn, the project has no screenshot) */
+.seatmap { background: #0F1A2E; color: #DCE6F5; padding: 22px 26px 26px; aspect-ratio: 16 / 9.4; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 26px; align-items: center; }
+.seatmap-info { display: grid; gap: 10px; align-content: center; min-width: 0; }
+.seatmap-route { font-family: var(--display); font-size: clamp(1.1rem, 2.4vw, 1.6rem); color: #fff; line-height: 1.15; }
+.seatmap-small { font-size: .8rem; color: #9FB2CF; }
+.seatmap-legend { display: grid; gap: 6px; font-size: .78rem; margin-top: 6px; }
+.seatmap-legend span { display: flex; align-items: center; gap: 8px; }
+.seatmap-legend i { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+.bus { background: #18263F; border-radius: 22px 22px 10px 10px; padding: 14px 12px; display: grid; grid-template-columns: repeat(2, 20px) 12px repeat(2, 20px); gap: 6px; }
+.bus .s { width: 20px; height: 20px; border-radius: 5px 5px 3px 3px; background: #2F4A73; }
+.bus .b { background: #55657F; opacity: .55; }
+.bus .h { background: #F2B860; }
+.bus .me { background: #4CC98F; box-shadow: 0 0 0 2px #0F1A2E, 0 0 0 4px #4CC98F; }
+.bus .gap { width: 12px; }
+.bus .driver { grid-column: 4 / span 2; height: 14px; border-radius: 6px; background: #2A3B58; margin-bottom: 4px; }
+.ticket-mini { position: absolute; width: 42%; right: -3%; bottom: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shot-shadow); padding: 16px 18px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; }
+.project:nth-child(even) .ticket-mini { right: auto; left: -3%; }
+.ticket-mini b { font-family: var(--display); font-weight: 400; font-size: 1.05rem; display: block; }
+.ticket-mini small { color: var(--muted); font-size: .8rem; }
+.qr { width: 54px; height: 54px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; }
+.qr i { background: var(--ink); border-radius: 1px; }
+.qr i.o { background: transparent; }
+
+/* skills */
+.skills { border-top: 1.5px solid var(--ink); }
+.skill-row { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; padding-block: 20px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.skill-row h3 { font-weight: 600; font-family: var(--body); font-size: var(--step-0); }
+.skill-row ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: var(--step-1); }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; }
+.about-copy { display: grid; gap: 18px; font-size: var(--step-1); max-width: 60ch; }
+.about-copy p:first-child { font-family: var(--display); font-size: var(--step-2); line-height: 1.35; }
+.facts { display: grid; gap: 0; align-content: start; border-top: 1.5px solid var(--ink); }
+.fact { padding-block: 18px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.fact dt { color: var(--muted); font-size: .9rem; }
+.fact dd { margin: 0; font-weight: 600; }
+.fact dd span { display: block; font-weight: 400; color: var(--muted); }
+
+/* contact */
+.contact { background: var(--ink); color: var(--paper); border-radius: 28px; padding: clamp(32px, 6vw, 72px); display: grid; gap: 28px; }
+.contact h2 { font-family: var(--display); font-size: var(--step-4); line-height: 1.04; max-width: 16ch; }
+.contact p { color: color-mix(in srgb, var(--paper) 72%, transparent); max-width: 54ch; font-size: var(--step-1); }
+.contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.email { font-size: clamp(1.15rem, 3vw, 1.9rem); font-weight: 600; color: var(--paper); text-decoration: underline; text-decoration-color: var(--marigold); text-decoration-thickness: 3px; text-underline-offset: 7px; overflow-wrap: anywhere; }
+.copy { font: 600 .9rem var(--body); padding: .6em 1em; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--paper) 40%, transparent); color: var(--paper); background: transparent; cursor: pointer; }
+.copy:hover { background: color-mix(in srgb, var(--paper) 12%, transparent); }
+.contact-list { display: flex; flex-wrap: wrap; gap: 12px 36px; list-style: none; padding: 0; margin: 0; }
+.contact-list li { display: grid; gap: 2px; }
+.contact-list small { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+.contact-list a, .contact-list span { color: var(--paper); font-weight: 600; text-decoration: none; }
+.contact-list a:hover { text-decoration: underline; }
+
+.footer { padding-block: 40px 56px; color: var(--muted); font-size: .9rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* responsive */
+@media (max-width: 960px) {
+  .hero-grid, .project, .about { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .project:nth-child(even) .project-media { order: 0; }
+  .section-head { grid-template-columns: minmax(0, 1fr); }
+  .section-head p { justify-self: start; }
+  .projects { gap: 88px; }
+  .fan { max-width: 620px; }
+}
+@media (max-width: 720px) {
+  .nav-links a:not(.btn) { display: none; }
+  .hero { padding-block: 40px 64px; }
+  .section { padding-block: 64px; }
+  .skill-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .seatmap { grid-template-columns: minmax(0, 1fr); padding: 16px; }
+  .seatmap .bus { display: none; }
+  .shot-2, .ticket-mini { width: 52%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gh-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol></svg>
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="mark" href="#top" aria-label="Mihini Weerasekara, back to top">
+      <span class="mark-badge" aria-hidden="true">MW</span>
+      <span>Mihini Weerasekara</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary gh-only" href="Mihini-Weerasekara-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-kicker"><span class="dot" aria-hidden="true"></span>Open to software engineering and QA internships</p>
+        <h1>I build full-stack web apps for everyday problems in Sri Lanka.</h1>
+        <p class="hero-sub">Bus seats, tuition fees, lost ID cards, a designer's first collection, scooters by the beach. I'm a final-year Computer Science student at Uva Wellassa University, and I've built each of these from the database to the screen.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">See my projects</a>
+          <a class="btn btn-line gh-only" href="Mihini-Weerasekara-Resume.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+            Download resume
+          </a>
+        </div>
+        <p class="hero-place">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          Pepiliyana, Colombo
+        </p>
+      </div>
+      <div class="fan" aria-hidden="true">
+        <figure class="f1"><img src="assets/campus-home.webp" alt=""></figure>
+        <figure class="f2"><img src="assets/amethia-home.webp" alt=""></figure>
+        <figure class="f3"><img src="assets/tide-hero.webp" alt=""></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-h">Projects</h2>
+        <p>Five full-stack apps, each built on my own. The code, screenshots and setup steps for every one are on GitHub.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project">
+          <div class="project-media">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Amethia storefront</span></div>
+              <img src="assets/amethia-home.webp" alt="Amethia home page with the purple brand theme and dress illustrations" loading="lazy">
+            </div>
+            <div class="shot shot-2"><img src="assets/amethia-admin.webp" alt="Amethia admin panel listing orders" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta"><span class="tag">Client project</span>E-commerce</p>
+            <h3>Amethia</h3>
+            <p class="project-lede">An online store for a young designer launching her first clothing collection.</p>
+            <ul class="points">
+              <li>Card payments through PayHere. The server checks the signature and amount of every payment notification before marking an order paid.</li>
+              <li>Admin panel to move orders from new to delivered, manage products and photos, and change delivery fees.</li>
+              <li>Runs on Node.js with zero npm dependencies, using Node's built-in SQLite.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>Node.js</li><li>JavaScript</li><li>SQLite</li><li>HTML &amp; CSS</li><li>PayHere</li></ul>
+            <a class="project-link" href="https://github.com/Mihiniii/amethia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-media">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Campus Lost &amp; Found</span></div>
+              <img src="assets/campus-home.webp" alt="Campus Lost and Found home page with recent lost items" loading="lazy">
+            </div>
+            <div class="shot shot-2"><img src="assets/campus-map.webp" alt="Item page with the location pinned on a map" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">University community app</p>
+            <h3>Campus Lost &amp; Found</h3>
+            <p class="project-lede">Students report lost or found items, pin the spot on a map, message each other and claim items back.</p>
+            <ul class="points">
+              <li>Map pins with Leaflet and OpenStreetMap so finders can show exactly where an item turned up.</li>
+              <li>Private chat for each item with unread badges, and a claim flow the reporter can accept or reject.</li>
+              <li>Email verification, password reset and an admin panel for reports and users.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>React 19</li><li>Vite</li><li>PHP 8</li><li>PostgreSQL</li><li>Leaflet</li></ul>
+            <a class="project-link" href="https://github.com/Mihiniii/campusLostFound" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-media">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>ClassMate LK</span></div>
+              <img src="assets/classmate-dash.webp" alt="ClassMate LK teacher dashboard with Chemistry, Combined Maths and Physics classes" loading="lazy">
+            </div>
+            <div class="shot shot-2"><img src="assets/classmate-att.webp" alt="Attendance page with present, absent and late counts" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Management system</p>
+            <h3>ClassMate LK</h3>
+            <p class="project-lede">Tuition class management for teachers, students and parents.</p>
+            <ul class="points">
+              <li>Teachers mark attendance by date and track monthly fees with paid and unpaid totals.</li>
+              <li>JWT login with three roles. Parents only see the students who added them, and only enrolled students can download class notes.</li>
+              <li>Layered Spring Boot API with Swagger docs, JUnit and Mockito tests, and Docker Compose to run it all.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>Java 21</li><li>Spring Boot</li><li>React</li><li>PostgreSQL</li><li>Docker</li></ul>
+            <a class="project-link" href="https://github.com/Mihiniii/classmate-lk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-media">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>SeatLanka seat map</span></div>
+              <div class="seatmap" role="img" aria-label="Drawing of the SeatLanka seat map for a Colombo to Kandy bus, with booked, held and selected seats">
+                <div class="seatmap-info">
+                  <span class="seatmap-small">Today, 06:30, Super Luxury</span>
+                  <span class="seatmap-route">Colombo to Kandy</span>
+                  <span class="seatmap-small">Seat 5C held for you for 4:52</span>
+                  <div class="seatmap-legend">
+                    <span><i style="background:#2F4A73"></i>Available</span>
+                    <span><i style="background:#F2B860"></i>Held by someone paying</span>
+                    <span><i style="background:#55657F"></i>Booked</span>
+                    <span><i style="background:#4CC98F"></i>Your seat</span>
+                  </div>
+                </div>
+                <div class="bus" aria-hidden="true">
+                  <span class="gap"></span><span class="gap"></span><span class="gap"></span><span class="driver"></span>
+                  <i class="s b"></i><i class="s b"></i><span class="gap"></span><i class="s"></i><i class="s b"></i>
+                  <i class="s"></i><i class="s h"></i><span class="gap"></span><i class="s b"></i><i class="s b"></i>
+                  <i class="s b"></i><i class="s"></i><span class="gap"></span><i class="s"></i><i class="s"></i>
+                  <i class="s"></i><i class="s"></i><span class="gap"></span><i class="s h"></i><i class="s"></i>
+                  <i class="s b"></i><i class="s"></i><span class="gap"></span><i class="s me"></i><i class="s"></i>
+                  <i class="s"></i><i class="s"></i><span class="gap"></span><i class="s"></i><i class="s b"></i>
+                  <i class="s"></i><i class="s b"></i><span class="gap"></span><i class="s"></i><i class="s"></i>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-mini" aria-hidden="true">
+              <div><b>E-ticket</b><small>Seat 5C, Colombo to Kandy</small></div>
+              <div class="qr"><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Booking system</p>
+            <h3>SeatLanka</h3>
+            <p class="project-lede">Bus seat booking where passengers pick their exact seat on a live seat map and get a QR e-ticket.</p>
+            <ul class="points">
+              <li>2+2 and 2+3 seat maps. A chosen seat is held for five minutes while the passenger pays.</li>
+              <li>A partial unique index in MongoDB stops two people booking the same seat at the same moment.</li>
+              <li>JWT login with passenger, operator and admin roles, and request validation with Zod.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>React</li><li>TypeScript</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Tailwind CSS</li></ul>
+            <a class="project-link" href="https://github.com/Mihiniii/seatlanka" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-media">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Tide &amp; Ride</span></div>
+              <img src="assets/tide-hero.webp" alt="Tide and Ride home page with a beach scene and the headline about scooters, tuk-tuks and buggies" loading="lazy">
+            </div>
+            <div class="shot shot-2"><img src="assets/tide-ticket.webp" alt="Rental ticket page with booking reference and dates" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Rental platform</p>
+            <h3>Tide &amp; Ride</h3>
+            <p class="project-lede">Rent scooters, tuk-tuks, bicycles and jeeps from beach towns on the south and east coasts.</p>
+            <ul class="points">
+              <li>Search by beach and dates. Vehicles already booked for those dates are hidden, and double bookings are blocked.</li>
+              <li>Booking form with a live total, optional hotel delivery, a rental ticket and online cancellation.</li>
+              <li>Prices are worked out on the server, users only see their own bookings, and automated tests cover both.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>Python</li><li>Django</li><li>SQLite</li><li>JavaScript</li><li>HTML &amp; CSS</li></ul>
+            <a class="project-link" href="https://github.com/Mihiniii/tideandride" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="skills-h">Skills</h2>
+        <p>The tools I've used to build and test the projects above.</p>
+      </div>
+      <div class="skills">
+        <div class="skill-row"><h3>Languages</h3><ul><li>Java</li><li>JavaScript</li><li>Python</li><li>PHP</li><li>SQL</li><li>HTML</li><li>CSS</li></ul></div>
+        <div class="skill-row"><h3>Frameworks</h3><ul><li>React</li><li>Spring Boot</li><li>Node.js</li><li>Express</li><li>Django</li><li>Tailwind CSS</li></ul></div>
+        <div class="skill-row"><h3>Databases</h3><ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>SQLite</li></ul></div>
+        <div class="skill-row"><h3>Testing and QA</h3><ul><li>JUnit</li><li>Mockito</li><li>Selenium</li><li>Postman</li><li>Django test framework</li></ul></div>
+        <div class="skill-row"><h3>Tools</h3><ul><li>Git and GitHub</li><li>Docker</li><li>JIRA</li><li>Figma</li><li>Linux</li></ul></div>
+        <div class="skill-row"><h3>Integrations</h3><ul><li>REST APIs</li><li>JWT authentication</li><li>PayHere payments</li><li>Leaflet maps</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="about-h">About me</h2>
+      </div>
+      <div class="about">
+        <div class="about-copy">
+          <p>I learn by building complete apps and putting them on GitHub with clear READMEs, screenshots and setup steps.</p>
+          <p>I pay attention to the details that keep an app trustworthy: checking every payment, stopping double bookings, and making sure people only see their own data.</p>
+          <p>I'm looking for an internship where I can work on a real product with a team, as a software engineer or in quality assurance.</p>
+        </div>
+        <dl class="facts">
+          <div class="fact"><dt>Degree</dt><dd>BSc (Hons) in Computer Science and Technology<span>Uva Wellassa University of Sri Lanka, 2023 to 2027</span></dd></div>
+          <div class="fact"><dt>GPA</dt><dd>3.80<span>Years 1 and 2. Year 3 results are not released yet.</span></dd></div>
+          <div class="fact"><dt>Final-year research</dt><dd>Bioindicator research<span>In progress</span></dd></div>
+          <div class="fact"><dt>Languages</dt><dd>Sinhala, English</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="contact">
+        <h2 id="contact-h">Have an internship opening?</h2>
+        <p>Email is the quickest way to reach me. I usually reply the same day.</p>
+        <div class="contact-row">
+          <a class="email" id="email" href="mailto:mihiniweerasekara@gmail.com">mihiniweerasekara@gmail.com</a>
+          <button class="copy" type="button" id="copy-email" data-copy="mihiniweerasekara@gmail.com">Copy email</button>
+        </div>
+        <ul class="contact-list">
+          <li><small>Phone</small><a href="tel:+94742377820">+94 74 237 7820</a></li>
+          <li><small>GitHub</small><a href="https://github.com/Mihiniii" target="_blank" rel="noopener">github.com/Mihiniii</a></li>
+          <li><small>Location</small><span>Pepiliyana, Colombo</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap footer">
+  <span>© 2026 Mihini Weerasekara</span>
+  <a href="#top">Back to top</a>
+</footer>
+
+<script>
+(function () {
+  var nav = document.querySelector(".nav");
+  function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var btn = document.getElementById("copy-email");
+  btn.addEventListener("click", function () {
+    var text = btn.dataset.copy;
+    function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("email"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = "Selected, press Ctrl+C";
+    }
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
