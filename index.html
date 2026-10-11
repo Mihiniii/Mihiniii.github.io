@@ -114,7 +114,7 @@ p { margin: 0; }
 .hero-kicker { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 500; font-size: var(--step--1); margin-bottom: 24px; padding: .5em 1em .5em .85em; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--go); box-shadow: 0 0 0 4px color-mix(in srgb, var(--go) 20%, transparent); flex: none; }
 .hero h1 { font-family: var(--display); font-size: var(--step-4); line-height: 1.1; letter-spacing: -.02em; max-width: 17ch; }
-.hero h1 em { font-style: normal; color: var(--amethyst); background: linear-gradient(transparent 70%, color-mix(in srgb, var(--marigold) 28%, transparent) 70%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hero h1 em { font-style: normal; color: var(--amethyst); }
 .hero-sub { font-size: var(--step-1); color: var(--muted); max-width: 50ch; margin-top: 22px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 .hero-place { margin-top: 22px; color: var(--muted); font-size: var(--step--1); display: flex; align-items: center; gap: 8px; }
@@ -150,10 +150,11 @@ p { margin: 0; }
 
 /* projects */
 .projects { display: grid; gap: 104px; counter-reset: project; }
+/* --tint / --tint-2 are set per project from its screenshot colours; they fall back to the site purple */
 .project { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
 .project:nth-child(even) .project-media { order: 2; }
 .project-media { position: relative; padding-bottom: 14%; isolation: isolate; }
-.project-media::before { content: ""; position: absolute; z-index: -1; inset: -5% 9% 7% -5%; border-radius: 28px; background: linear-gradient(135deg, var(--amethyst-soft), var(--marigold-soft)); }
+.project-media::before { content: ""; position: absolute; z-index: -1; inset: -5% 9% 7% -5%; border-radius: 28px; background: linear-gradient(135deg, color-mix(in srgb, var(--tint, var(--amethyst)) 26%, var(--surface)), color-mix(in srgb, var(--tint-2, var(--tint, var(--amethyst))) 14%, var(--surface))); }
 .project:nth-child(even) .project-media::before { inset: -5% -5% 7% 9%; }
 .shot { border-radius: 12px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shot-shadow); }
 .shot img { width: 100%; aspect-ratio: 16 / 9.4; object-fit: cover; object-position: top left; }
@@ -344,7 +345,7 @@ p { margin: 0; }
       </div>
 
       <div class="projects">
-        <article class="project">
+        <article class="project" style="--tint: #6A2099; --tint-2: #7A34A8">
           <div class="project-media">
             <div class="shot">
               <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Amethia storefront</span></div>
@@ -366,7 +367,7 @@ p { margin: 0; }
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" style="--tint: #4A34D8; --tint-2: #7878D8">
           <div class="project-media">
             <div class="shot">
               <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Campus Lost &amp; Found</span></div>
@@ -388,7 +389,7 @@ p { margin: 0; }
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" style="--tint: #7A1CF0; --tint-2: #A878F0">
           <div class="project-media">
             <div class="shot">
               <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>ClassMate LK</span></div>
@@ -410,7 +411,7 @@ p { margin: 0; }
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" style="--tint: #2F4A73; --tint-2: #4CC98F">
           <div class="project-media">
             <div class="shot">
               <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>SeatLanka seat map</span></div>
@@ -457,7 +458,7 @@ p { margin: 0; }
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" style="--tint: #0F6B72; --tint-2: #F0C030">
           <div class="project-media">
             <div class="shot">
               <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>Tide &amp; Ride</span></div>
@@ -479,7 +480,7 @@ p { margin: 0; }
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" style="--tint: #1830C8; --tint-2: #F2B21B">
           <div class="project-media">
             <div class="shot">
               <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>PayHere sandbox checkout</span></div>
