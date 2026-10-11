@@ -322,7 +322,7 @@ p { margin: 0; }
     <div class="wrap">
       <div class="section-head">
         <div><p class="eyebrow">01 · Selected work</p><h2 id="work-h">Projects</h2></div>
-        <p>Five full-stack apps, each built on my own. The code, screenshots and setup steps for every one are on GitHub.</p>
+        <p>Five full-stack apps and a payment gateway demo, each built on my own. The code, screenshots and setup steps for every one are on GitHub.</p>
       </div>
 
       <div class="projects">
@@ -460,6 +460,28 @@ p { margin: 0; }
             <a class="project-link" href="https://github.com/Mihiniii/tideandride" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
           </div>
         </article>
+
+        <article class="project">
+          <div class="project-media">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>PayHere sandbox checkout</span></div>
+              <img src="assets/payhere-checkout.webp" alt="PayHere sandbox checkout page for Wireless Headphones at Rs. 2,500.00, filled in with a test card" loading="lazy">
+            </div>
+            <div class="shot shot-2"><img src="assets/payhere-success.webp" alt="Payment successful page showing the order ID, item, amount and PayHere payment ID" loading="lazy"></div>
+          </div>
+          <div class="project-body">
+            <p class="project-meta">Payment gateway integration</p>
+            <h3>PayHere Payment Demo</h3>
+            <p class="project-lede">A small shop that takes card payments through PayHere in sandbox mode, built to learn how a payment gateway works end to end.</p>
+            <ul class="points">
+              <li>The payment hash and the price are made on the server, so the merchant secret stays hidden and the amount can't be changed in the browser.</li>
+              <li>PayHere's payment notification is checked for its signature, merchant ID and amount before an order is marked paid.</li>
+              <li>Orders are saved as pending, then updated from the notification. ngrok gives the notify URL a public address while running on localhost.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>PHP</li><li>MySQL</li><li>PDO</li><li>PayHere</li><li>ngrok</li><li>XAMPP</li></ul>
+            <a class="project-link" href="https://github.com/Mihiniii/payhere-demo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#gh-icon"/></svg>View code on GitHub</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -508,8 +530,8 @@ p { margin: 0; }
         <h2 id="contact-h">Have an internship opening?</h2>
         <p>Email is the quickest way to reach me. I usually reply the same day.</p>
         <div class="contact-row">
-          <a class="email" id="email" href="mailto:mihiniweerasekara@gmail.com">mihiniweerasekara@gmail.com</a>
-          <button class="copy" type="button" id="copy-email" data-copy="mihiniweerasekara@gmail.com">Copy email</button>
+          <a class="email" id="email" href="mailto:mihiniweerasekaraa@gmail.com">mihiniweerasekaraa@gmail.com</a>
+          <button class="copy" type="button" id="copy-email" data-copy="mihiniweerasekaraa@gmail.com">Copy email</button>
         </div>
         <ul class="contact-list">
           <li><small>Phone</small><a href="tel:+94742377820">+94 74 237 7820</a></li>
