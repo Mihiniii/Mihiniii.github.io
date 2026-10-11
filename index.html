@@ -25,6 +25,8 @@
   --marigold: #C9800F;
   --marigold-soft: #FDF1DC;
   --go: #1F8A5B;
+  --contact-bg: #1C1730;
+  --contact-fg: #F6F5FB;
   --shot-shadow: 0 18px 50px -18px rgba(40, 24, 90, .35);
 
   --display: "Young Serif", Georgia, "Times New Roman", serif;
@@ -41,14 +43,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper: #14111F; --surface: #1C1830; --ink: #EEEAF7; --muted: #A79FBF; --line: #2F2946;
-    --amethyst: #A98BFA; --amethyst-soft: #2A2150; --marigold: #F2B860; --marigold-soft: #3A2C14; --go: #4CC98F;
+    --amethyst: #A98BFA; --amethyst-soft: #2A2150; --marigold: #F2B860; --marigold-soft: #3A2C14; --go: #4CC98F; --contact-bg: #2A2150; --contact-fg: #EEEAF7;
     --shot-shadow: 0 18px 50px -18px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #14111F; --surface: #1C1830; --ink: #EEEAF7; --muted: #A79FBF; --line: #2F2946;
-  --amethyst: #A98BFA; --amethyst-soft: #2A2150; --marigold: #F2B860; --marigold-soft: #3A2C14; --go: #4CC98F;
+  --amethyst: #A98BFA; --amethyst-soft: #2A2150; --marigold: #F2B860; --marigold-soft: #3A2C14; --go: #4CC98F; --contact-bg: #2A2150; --contact-fg: #EEEAF7;
   --shot-shadow: 0 18px 50px -18px rgba(0, 0, 0, .7);
   color-scheme: dark;
 }
@@ -216,17 +218,17 @@ p { margin: 0; }
 .fact dd span { display: block; font-weight: 400; font-size: .9375rem; color: var(--muted); }
 
 /* contact */
-.contact { background: var(--ink); color: var(--paper); border-radius: 28px; padding: clamp(32px, 6vw, 72px); display: grid; gap: 28px; }
+.contact { background: var(--contact-bg); color: var(--contact-fg); border-radius: 28px; padding: clamp(32px, 6vw, 72px); display: grid; gap: 28px; }
 .contact h2 { font-family: var(--display); font-size: var(--step-4); line-height: 1.1; letter-spacing: -.02em; max-width: 18ch; }
-.contact p { color: color-mix(in srgb, var(--paper) 72%, transparent); max-width: 54ch; font-size: var(--step-1); }
+.contact p { color: color-mix(in srgb, var(--contact-fg) 72%, transparent); max-width: 54ch; font-size: var(--step-1); }
 .contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
-.email { font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 600; color: var(--paper); text-decoration: underline; text-decoration-color: var(--marigold); text-decoration-thickness: 3px; text-underline-offset: 7px; overflow-wrap: anywhere; }
-.copy { font: 600 .9rem var(--body); padding: .6em 1em; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--paper) 40%, transparent); color: var(--paper); background: transparent; cursor: pointer; }
-.copy:hover { background: color-mix(in srgb, var(--paper) 12%, transparent); }
-.contact-list { display: flex; flex-wrap: wrap; gap: 16px 44px; list-style: none; padding: 28px 0 0; margin: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); }
+.email { font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 600; color: var(--contact-fg); text-decoration: underline; text-decoration-color: var(--marigold); text-decoration-thickness: 3px; text-underline-offset: 7px; overflow-wrap: anywhere; }
+.copy { font: 600 .9rem var(--body); padding: .6em 1em; border-radius: 999px; border: 1.5px solid color-mix(in srgb, var(--contact-fg) 40%, transparent); color: var(--contact-fg); background: transparent; cursor: pointer; }
+.copy:hover { background: color-mix(in srgb, var(--contact-fg) 12%, transparent); }
+.contact-list { display: flex; flex-wrap: wrap; gap: 16px 44px; list-style: none; padding: 28px 0 0; margin: 0; border-top: 1px solid color-mix(in srgb, var(--contact-fg) 18%, transparent); }
 .contact-list li { display: grid; gap: 2px; }
-.contact-list small { color: color-mix(in srgb, var(--paper) 60%, transparent); font-size: .8125rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-.contact-list a, .contact-list span { color: var(--paper); font-weight: 600; text-decoration: none; }
+.contact-list small { color: color-mix(in srgb, var(--contact-fg) 60%, transparent); font-size: .8125rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.contact-list a, .contact-list span { color: var(--contact-fg); font-weight: 600; text-decoration: none; }
 .contact-list a:hover { text-decoration: underline; }
 
 .footer { padding-block: 40px 56px; color: var(--muted); font-size: var(--step--1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
